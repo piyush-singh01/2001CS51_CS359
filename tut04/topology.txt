@@ -1,0 +1,5 @@
+A B C D
+A B 5
+A C 2
+D B 9
+EOF
