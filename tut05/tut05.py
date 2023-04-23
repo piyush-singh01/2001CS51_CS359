@@ -75,10 +75,9 @@ class Router:
     
     def compute(self):
         self.pq.put((0, self.node))
+        # Djikstra
         while not self.pq.empty():
-            # lock here
-            # print table function for this node with changed list
-            # release locks in other function not here
+            # Acquire lock here.
             semaphore[self.node].acquire()
             set_table_node(self.node, self.changed_list)
             
@@ -126,6 +125,8 @@ def print_all_tables(changes):
 changes = dict()
 
 iteration = 1
+# A utility function for setting change list for all nodes
+# Locks are released here
 def set_table_node(node, change_list):
     changes[node] = change_list
     global locked
