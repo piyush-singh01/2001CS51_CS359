@@ -20,8 +20,9 @@ num_nodes=0
 def parseInputs():
     with open('topology.txt', 'r') as file:
         lines = file.readlines()
-        nodes = lines[0]    # Get the first line of input, containing the list of all nodes
-        lines.pop(0)        # Pop the first line of input, which contains the list of nodes.
+        lines.pop(0)        # Pop the first line of input, containing the number of nodes. That is not needed
+        nodes = lines[0]    # Get the second line of input, containing the list of all nodes
+        lines.pop(0)        # Pop the second line of input, which contains the list of nodes.
 
         # Create an edge list from the rest of the lines in the format [first_node, second_node, edge_weight]
         nodes = nodes.strip()

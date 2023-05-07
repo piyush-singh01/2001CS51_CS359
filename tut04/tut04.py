@@ -18,9 +18,9 @@ INF = 20000000
 def parseInputs():
     with open('topology.txt', 'r') as file:
         lines = file.readlines()
-
-        nodes = lines[0]    # Get the first line of input, containing the list of all nodes
-        lines.pop(0)        # Pop the first line of input, which contains the list of nodes.
+        lines.pop(0)        # Pop the first line of the input, which contains the number of nodes.
+        nodes = lines[0]    # Get the second line of input, containing the list of all nodes
+        lines.pop(0)        # Pop the second line of input, which contains the list of nodes.
 
         # Create an edge list from the rest of the lines in the format [first_node, second_node, edge_weight]
         nodes = nodes.strip()
@@ -124,10 +124,10 @@ def print_table(node, changed_list):
 def print_all_tables(changes):
     for node in node_list:
         if node not in changes:
-            sleep(0.1)
+            # sleep(0.1)
             print_table(node, [])
         else:
-            sleep(0.1)
+            # sleep(0.1)
             print_table(node, changes[node])
 
 
